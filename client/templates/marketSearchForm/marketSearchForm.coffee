@@ -4,6 +4,3 @@ Template.marketSearchForm.events
     Session.set('zipNotFoundError', null)
     zip = event.target.zipCode.value
     MarketAPI.getResults(zip)
-
-  'click .goRight': (event) ->
-    event.preventDefault()

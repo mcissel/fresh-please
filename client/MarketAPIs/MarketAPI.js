@@ -31,12 +31,12 @@ MarketAPI = {
     }
     Session.set('markets', markets);
   },
-  getDetails: function () {
+  getDetails: function (marketId) {
     jQuery.ajax({
       type: "GET",
       contentType: "application/json; charset=utf-8",
       // submit a get request to the restful service mktDetail.
-      url: "http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + this.id,
+      url: "http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + marketId,
       dataType: 'jsonp',
       jsonpCallback: 'MarketAPI.detailResultHandler'
     });
@@ -50,11 +50,11 @@ MarketAPI = {
         results.push({name:innerKey,value:details[innerKey]});
       }
     }
-    console.log(results)
-    Router.go('market.details', {
-      id:this.id,
-      name:this.marketName,
-      details: results
-    });
+    console.log(results);
+    console.log(typeof results);
+    console.log(results.length);
+
+    Session.set('marketDetails', results);
+    //Session.set('marketDetails', [{name:'test', value:'test'}]);
   }
 };

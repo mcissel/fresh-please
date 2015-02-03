@@ -5,10 +5,19 @@ Router.route('/', {
 Router.route('/dashboard');
 
 
-Router.route('/market/:id',
+Router.route('/market/:marketName/:id',
 {
-  data:this.params,
-  name: 'market.details'
+  name: 'marketDetails',
+  data: function() {
+    return {
+      name: this.params.marketName,
+      id: this.params.id
+    }
+  },
+  onRun: function() {
+    MarketAPI.getDetails(this.params.id);
+    this.next();
+  }
 });
   //function () {
 
