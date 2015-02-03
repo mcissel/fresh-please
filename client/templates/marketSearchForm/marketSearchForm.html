@@ -1,0 +1,29 @@
+<template name="marketSearchForm">
+
+    <form class="searchMarkets form-horizontal" style="max-width:800px;">
+
+        <div class="lead text-center">
+            Enter your zip code, then press
+            <i class="glyphicon glyphicon-arrow-right" style="font-size:0.8em;"></i> to find fresh
+            fruits and vegetables near you
+        </div>
+
+        <div class="form-group form-group-lg">
+            <label for="zipCode" class="col-xs-3 text-right control-label">
+                zip code
+            </label>
+
+            <div class="col-xs-5">
+                <input class="form-control" type="text" name="zipCode"
+                       placeholder="zip code"/>
+            </div>
+            <div class="col-xs-3">
+                <button class="btn btn-default form-control submit"
+                        type="submit">
+                    <i class="glyphicon glyphicon-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+    </form>
+</template>

@@ -1,0 +1,26 @@
+<template name="marketList">
+    {{#if error}}
+        {{error.message}}
+    {{else}}
+        {{#momentum plugin='right-to-left'}}
+            {{#if markets}}
+                {{#each markets}}
+                    <div class="row">
+
+                        <div class="col-xs-10 text-left">
+                            <div>
+                                <span class="market {{selectedMarket}}">{{marketName}}</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div>
+                                {{distance}}
+                            </div>
+                        </div>
+
+                    </div>
+                {{/each}}
+            {{/if}}
+        {{/momentum}}
+    {{/if}}
+</template>
