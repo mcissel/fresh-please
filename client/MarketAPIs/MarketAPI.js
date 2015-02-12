@@ -16,17 +16,17 @@ MarketAPI = {
     var results = obj.results;
     if (results) {
       for (i = 0, resultCount = results.length; i < resultCount; i++) {
-          var marketName = results[i].marketname;
-          var distance = parseFloat(marketName); // distance comes prepended
-          if (isNaN (distance) ) {
-            Session.set('zipNotFoundError', {message: marketName});
-            break;
-          }
-          markets.push({
-            marketId: results[i].id,
-            marketName: marketName.substr(marketName.indexOf(' ') + 1),
-            distance: distance
-          });
+        var marketName = results[i].marketname;
+        var distance = parseFloat(marketName); // distance comes prepended
+        if (isNaN(distance)) {
+          Session.set('zipNotFoundError', {message: marketName});
+          break;
+        }
+        markets.push({
+          marketId: results[i].id,
+          marketName: marketName.substr(marketName.indexOf(' ') + 1),
+          distance: distance.toFixed(1)
+        });
       }
     }
     Session.set('markets', markets);

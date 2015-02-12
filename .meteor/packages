@@ -20,7 +20,6 @@ matb33:collection-hooks
 reywood:publish-composite
 yasinuslu:blaze-meta
 dburles:factory
-anti:fake
 wizonesolutions:underscore-string
 alanning:roles
 aldeed:simple-schema
