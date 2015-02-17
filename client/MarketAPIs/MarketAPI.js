@@ -31,7 +31,8 @@ MarketAPI = {
     }
     Session.set('markets', markets);
   },
-  getDetails: function (marketId) {
+  getDetails: function (marketId, callback) {
+    MarketAPI.callback = callback;
     jQuery.ajax({
       type: "GET",
       contentType: "application/json; charset=utf-8",
@@ -55,6 +56,7 @@ MarketAPI = {
     console.log(results.length);
 
     Session.set('marketDetails', results);
+    MarketAPI.callback.call();
     //Session.set('marketDetails', [{name:'test', value:'test'}]);
   }
 };

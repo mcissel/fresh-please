@@ -1,15 +1,21 @@
 <template name="marketDetails">
-    <div>Market Name: {{name}}</div>
+    {{#if name}}
+        <div class="container marketDetails">
+            <div class="row">
+                <div>Market Name: {{name}}</div>
 
-    {{#if details}}
-        {{#each details}}
-            <div class="col-xs-3">
-                {{name}}
+                {{#if details}}
+                    {{#each details}}
+                        <div class="col-xs-3">
+                            {{name}}
+                        </div>
+                        <div class="col-xs-7 col-xs-offset-1">
+                            {{value}}
+                        </div>
+                    {{/each}}
+                {{/if}}
+                <div>Id:{{id}}</div>
             </div>
-            <div class="col-xs-7 col-xs-offset-1">
-                {{value}}
-            </div>
-        {{/each}}
+        </div>
     {{/if}}
-    <div>Id:{{id}}</div>
 </template>

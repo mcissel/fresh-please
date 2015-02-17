@@ -1,11 +1,11 @@
 <template name="marketList">
     {{#if error}}
         {{error.message}}
+
     {{else}}
         {{#if markets}}
 
             <div class="row">
-
                 <div class="col-xs-offset-9 col-xs-2">
                     <div>
                         Miles
@@ -21,6 +21,7 @@
                             <span class="market {{selectedMarket}}">{{marketName}}</span>
                         </div>
                     </div>
+
                     <div class="col-xs-2">
                         <div>
                             {{distance}}
@@ -29,6 +30,7 @@
 
                 </div>
             {{/each}}
+
         {{/if}}
     {{/if}}
 </template>

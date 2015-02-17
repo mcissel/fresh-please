@@ -1,22 +1,27 @@
 <template name="appLayout">
-    <!--[if lt IE 9]>
-    <p class="browser-warning"><strong><i class="icon-exclamation-sign"></i> Warning</strong> - You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to properly view this website.</p>
-  <![endif]-->
 
-    <div class="appLayoutOuterWrapper">
+    <div id="outerWrapper">
         {{> _header}}
 
-        <div class="appLayoutInnerWrapper">
-
-            <div class="pane leftPane">
-                {{> yield}}
-                {{> yield region="leftPane"}}
-            </div>
-            <div class="pane rightPane">
-                {{> yield region="rightPane"}}
-            </div>
+        <div class="pane menuPane">
+            {{> yield region="menuPane"}}
         </div>
 
+        <div id="contentContainer">
+
+            <div class="pane leftPane">
+                {{> yield region="homePane"}}
+            </div>
+
+            <div class="pane rightPane">
+                yield in here!
+                {{> yield region="detailsPane"}}
+            </div>
+
+        </div>
+
+        {{> loading}}
         {{> _footer}}
     </div>
+
 </template>

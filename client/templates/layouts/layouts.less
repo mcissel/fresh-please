@@ -1,40 +1,68 @@
+@import '../../css/base/variables.import.less';
+@import '../../css/base/mixins.import.less';
+
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 42px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: @footer-height;
 }
+
 html,
 body {
-    margin:0;
-    padding:0;
-    height:100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.appLayoutOuterWrapper {
-    overflow: hidden;
-    min-height:100%;
-    position: relative;
+#outerWrapper {
+  width: 100%;
+  overflow: hidden;
+  min-height: 100%;
+  position: relative;
+  background-color: #ffc236;
 }
 
-.appLayoutInnerWrapper {
-    padding-bottom: 42px;
-    width:100%;
+#contentContainer {
+  .position(0, -100%, 0, 0);
+  .transition(all .6s ease);
+  &.showRightPane {
+    .position(0, 0, 0, -100%); // change the left and right
+  }
+  @media (min-width: @screen-tablet) {
+    right: 0;          // show the whole container on tablets
+    &.showRightPane {  // AND don't
+      left: 0;         // change the left and right on tablets
+    }
+  }
 }
 
 .navbar-brand {
-    font-family: Junction;
+  font-family: Junction;
 }
 
 .pane {
-    position: absolute;
-    width: 100%;
-    float: left;
+  padding-top: @navbar-height;
+  padding-bottom: @footer-height;
 }
 
 .leftPane {
-    background-color: #ffb925;
+  .position(0, 50%, 0, 0);
+  background-color: #aae5f4;
 }
+
 .rightPane {
-    background-color: #aae5f4;
+  .position(0, 0, 0, 50%);
+  background-color: #f44862;
+}
+
+.menuPane {
+  background-color: #ffb925;
+}
+
+.marketDetails {
+  background-color: #e37b84;
+}
+
+.homeWrapper {
 }

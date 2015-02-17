@@ -1,11 +1,11 @@
 Router.configure({
   layoutTemplate: 'appLayout',
-  controller: 'AppController',
-  loadingTemplate: 'loading'
+  controller: 'AppController'
+  //loadingTemplate: 'loading'
 });
 
 
-Router.plugin('loading', {loadingTemplate: 'loading'});
+//Router.plugin('loading', {loadingTemplate: 'loading'});
 Router.plugin('dataNotFound', {dataNotFoundTemplate: 'notFound'});
 
 //***********
@@ -16,7 +16,7 @@ AppController = RouteController.extend({
 });
 
 AppController.events({
-  'click [data-action=logout]' : function() {
+  'click [data-action=logout]': function () {
     AccountsTemplates.logout();
   }
 });
@@ -25,26 +25,28 @@ AppController.events({
 //Routes
 //
 Router.route('/', {
-  name: 'home'
+  name: 'home',
+  action: function () {
+    this.render('home', {to: 'homePane'});
+    $('#contentContainer').removeClass('showRightPane');
+  }
 });
 
 Router.route('/market/:marketName/:id',
   {
     name: 'marketDetails',
-    data: function() {
+    data: function () {
       return {
         name: this.params.marketName,
         id: this.params.id
       }
     },
-    onRun: function() {
-      console.log('onRun (getting MarketDetails from USDA');
-      MarketAPI.getDetails(this.params.id);
-      this.next();
+    action: function () {
+      this.render('marketDetails', {to: 'detailsPane'});
+      $('#contentContainer').addClass('showRightPane');
     },
-    action: function() {
-      console.log('rendering to rightPane');
-      this.render('marketDetails', {to: 'rightPane'});
+    onAfterAction: function() {
+      Session.set('loading', false);
     }
   });
 //function () {

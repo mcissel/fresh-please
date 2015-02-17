@@ -1,3 +1,6 @@
+Template.marketList.rendered = () ->
+  console.log 'rendered marketList'
+
 Template.marketList.helpers
   'markets': ->
     Session.get('markets')
@@ -10,8 +13,13 @@ Template.marketList.helpers
 Template.marketList.events
   'click .market': ->
     Session.set('selectedMarketId', @marketId)
+    console.log 'setting loading to true'
+    Session.set('loading', true);
     console.log @
     console.log @marketName
-    Router.go('marketDetails', {id: @marketId, marketName: @marketName})
+
+    MarketAPI.getDetails @marketId, () =>
+#      $('#contentContainer').addClass('showRightPane');
+      Router.go('marketDetails', {id: @marketId, marketName: @marketName})
 #    MarketAPI.id = @.marketId
 #    MarketAPI.getDetails()
