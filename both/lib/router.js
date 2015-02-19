@@ -29,6 +29,7 @@ Router.route('/', {
   action: function () {
     this.render('home', {to: 'homePane'});
     $('#contentContainer').removeClass('showRightPane');
+    Meta.setTitle();
   }
 });
 
@@ -44,8 +45,7 @@ Router.route('/market/:marketName/:id',
     action: function () {
       this.render('marketDetails', {to: 'detailsPane'});
       $('#contentContainer').addClass('showRightPane');
-    },
-    onAfterAction: function() {
+      Meta.setTitle(this.params.marketName);
       Session.set('loading', false);
     }
   });

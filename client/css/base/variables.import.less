@@ -4,4 +4,16 @@
 // Custom Variables
 @brand-primary: #DC681D;
 
-@footer-height: 42px;
+@footer-height: 32px;
+@footer-bg: @navbar-default-bg;
+
+
+// X-Tiny screen / even smaller phone
+@screen-xt:                  320px;
+@screen-xt-min:              @screen-xt;
+//** Deprecated `@screen-lg-desktop` as of v3.0.1
+@screen-tiny:                @screen-xt-min;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xt-max:              (@screen-xs-min - 1); // should be 479px
+@screen-xxt-max:             (@screen-xt-min - 1); // should be 319px

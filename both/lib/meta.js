@@ -1,10 +1,14 @@
-Meteor.startup(function() {
-  if(Meteor.isClient) {
+Meteor.startup(function () {
+  if (Meteor.isClient) {
+    console.log('attempting to set the title...');
     Meta.config({
       options: {
-        // Meteor.settings[Meteor.settings.environment].public.meta.title
-        suffix: 'Title (in lib/router/meta.js)'
+        title: 'Farmer\'s Market Search',
+        suffix: 'Farmer\'s Market Search'
       }
     });
+    Meta.init(); // is this needed?
+
+    GoogleMaps.load(); // loads the Maps API
   }
 });

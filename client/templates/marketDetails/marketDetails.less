@@ -1,0 +1,34 @@
+@import '../../css/base/variables.import.less';
+@import '../../css/base/mixins.import.less';
+
+.marketDetails .marketName {
+  font: 22px "roboto_condensedregular", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: @gray-light;
+}
+
+.detailName {
+  font: 20px 'lato', "robotomedium_italic", Arial, sans-serif;
+  color: @gray;
+  min-width: 90px;
+  @media (max-width: @screen-xxt-max) {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+.detailValue {
+  @media (max-width: @screen-xxt-max) {
+    width: 100%;
+    border-bottom: 1px dotted @gray-lighter;
+  }
+}
+
+.detailRow {
+  margin-top: 20px;
+}
+
+.map-container {
+  height: 300px;
+}

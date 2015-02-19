@@ -3,9 +3,11 @@
 
 footer {
   position: absolute;
+  padding-top:4px;
   bottom: 0;
   width: 100%;
   height: @footer-height;
+  background-color: @footer-bg;
 }
 
 html,
@@ -13,6 +15,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: #F9F9F9;
 }
 
 #outerWrapper {
@@ -42,7 +45,7 @@ body {
 }
 
 .pane {
-  padding-top: @navbar-height;
+  padding-top: @navbar-height + 10;
   padding-bottom: @footer-height;
 }
 
@@ -53,15 +56,11 @@ body {
 
 .rightPane {
   .position(0, 0, 0, 50%);
-  background-color: #f44862;
+  background-color: #FFF;
 }
 
 .menuPane {
   background-color: #ffb925;
-}
-
-.marketDetails {
-  background-color: #e37b84;
 }
 
 .homeWrapper {

@@ -7,17 +7,18 @@
             {{> yield region="menuPane"}}
         </div>
 
-        <div id="contentContainer">
+        <div id="contentContainer" class="container-fluid">
+            <div class="row">
 
-            <div class="pane leftPane">
-                {{> yield region="homePane"}}
+                <div class="pane leftPane col-xs-6">
+                    {{> yield region="homePane"}}
+                </div>
+
+                <div class="pane rightPane col-xs-6">
+                    {{> yield region="detailsPane"}}
+                </div>
+
             </div>
-
-            <div class="pane rightPane">
-                yield in here!
-                {{> yield region="detailsPane"}}
-            </div>
-
         </div>
 
         {{> loading}}

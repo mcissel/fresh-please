@@ -1,0 +1,37 @@
+<template name="marketDetails">
+    {{#if name}}
+
+        <div class="marketDetails">
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="marketName">{{name}}</div>
+                </div>
+            </div>
+
+            {{#if details}}
+                {{#each details}}
+
+                    <div class="row detailRow">
+                        {{#if map}}
+                            <div class="map-container col-xs-12">
+                                {{> googleMap name="exampleMap" options=exampleMapOptions}}
+                            </div>
+                        {{else}}
+                            <div class="detailName col-xs-3 col-sm-offset-1">
+                                {{name}}
+                            </div>
+
+                            <div class="detailValue col-xs-9 col-sm-8">
+                                {{value}}
+                            </div>
+                        {{/if}}
+                    </div>
+
+                {{/each}}
+            {{/if}}
+
+        </div>
+
+    {{/if}}
+</template>
